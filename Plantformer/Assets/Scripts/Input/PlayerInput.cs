@@ -17,9 +17,9 @@ public class PlayerInput : MonoBehaviour/*ScriptableObject, PlayerInputActions.I
 
     Vector2 axes => playerInputActions.Gameplay.Move.ReadValue<Vector2>();
     public float AxesX => axes.x;
-    public bool Move => AxesX != 0;
-    public bool Jump => playerInputActions.Gameplay.Jump.WasPressedThisFrame();
-    public bool StopJump => playerInputActions.Gameplay.Jump.WasReleasedThisFrame();
+    public bool isMove => AxesX != 0;
+    public bool isJump => playerInputActions.Gameplay.Jump.WasPressedThisFrame();
+    public bool isStopJump => playerInputActions.Gameplay.Jump.WasReleasedThisFrame();
          
 
     private void OnEnable()

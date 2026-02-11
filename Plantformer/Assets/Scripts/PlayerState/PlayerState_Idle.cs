@@ -9,6 +9,8 @@ public class PlayerState_Idle : PlayerState
     public override void Enter()
     {
         animator.Play("Idle");
+
+
     }
     public override void Exit()
     {
@@ -16,13 +18,13 @@ public class PlayerState_Idle : PlayerState
     }
     public override void LogicUpdate()
     {
-        if (Keyboard.current.aKey.isPressed || Keyboard.current.dKey.isPressed)
+        if (input.isMove)
         {
             stateMachine.SwitchState(typeof(PlayerState_Run));
         }
     }
     public override void PhysicUpdate()
     {
-        
+        controller.StopMove();
     }
 }

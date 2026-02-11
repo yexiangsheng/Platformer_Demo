@@ -10,11 +10,14 @@ public class PlayerState : ScriptableObject, IState
 
     protected PlayerStateMachine stateMachine;
 
+    protected PlayerController controller;
+
     protected PlayerInput input;
 
-    public void Initialize(Animator animator, PlayerInput input,PlayerStateMachine stateMachine)
+    public void Initialize(Animator animator, PlayerController controller, PlayerInput input,PlayerStateMachine stateMachine)
     {
         this.animator = animator;
+        this.controller = controller;
         this.input = input;
         this.stateMachine = stateMachine;
     }
