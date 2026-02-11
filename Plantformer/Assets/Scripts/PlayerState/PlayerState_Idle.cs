@@ -6,11 +6,13 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Idle", fileName = "PlayerState_Idle")]
 public class PlayerState_Idle : PlayerState
 {
+    [SerializeField] float deceleration = 5f;
+
     public override void Enter()
     {
         animator.Play("Idle");
 
-
+        currentSpeed = controller.CurrentSpeed;
     }
     public override void Exit()
     {
@@ -22,9 +24,11 @@ public class PlayerState_Idle : PlayerState
         {
             stateMachine.SwitchState(typeof(PlayerState_Run));
         }
+
+        currentSpeed = Mathf.MoveTowards(currentSpeed, 0f, deceleration * Time.deltaTime);
     }
     public override void PhysicUpdate()
     {
-        controller.StopMove();
+        controller.SetVelocityX(currentSpeed * controller.transform.localScale.x);
     }
 }

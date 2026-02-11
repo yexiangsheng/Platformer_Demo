@@ -14,6 +14,8 @@ public class PlayerState : ScriptableObject, IState
 
     protected PlayerInput input;
 
+    protected float currentSpeed;
+
     public void Initialize(Animator animator, PlayerController controller, PlayerInput input,PlayerStateMachine stateMachine)
     {
         this.animator = animator;

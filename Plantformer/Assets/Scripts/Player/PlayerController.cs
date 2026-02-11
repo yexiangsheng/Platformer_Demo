@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody rb;
 
+    public float CurrentSpeed => Mathf.Abs(rb.velocity.x);
+
+
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -35,20 +38,13 @@ public class PlayerController : MonoBehaviour
         SetVelocityX(moveSpeed * playerInput.AxesX);
     }
 
-    public void StopMove()
-    {
-        if (!playerInput.isMove)
-        {
-            SetVelocityX(0f);
-        }
-    }
     public void SetVelocity(Vector3 velocity)
     {
         rb.velocity = velocity;
     }
     public void SetVelocityX(float velocityX)
     {
-        rb.velocity = new Vector3 (velocityX,rb.velocity.x);
+        rb.velocity = new Vector3 (velocityX,rb.velocity.y);
     }
     public void SetVelocityY(float velocityY)
     {
