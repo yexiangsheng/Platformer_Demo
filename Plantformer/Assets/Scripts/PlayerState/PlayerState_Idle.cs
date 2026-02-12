@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerState_Idle : PlayerState
 {
     [SerializeField] float deceleration = 5f;
-
+    [SerializeField] float moveSpeed = 5f;
     public override void Enter()
     {
         //animator.Play("Idle");
@@ -43,5 +43,7 @@ public class PlayerState_Idle : PlayerState
     public override void PhysicUpdate()
     {
         controller.SetVelocityX(currentSpeed * controller.transform.localScale.x);
+
     }
+
 }

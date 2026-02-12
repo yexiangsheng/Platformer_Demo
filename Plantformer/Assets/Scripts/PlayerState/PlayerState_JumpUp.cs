@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerState_JumpUp : PlayerState
 {
     [SerializeField] float jumpForce = 7f;
-
+    [SerializeField] float moveSpeed = 5f;
     public override void Enter()
     {
         base.Enter();
@@ -16,12 +16,15 @@ public class PlayerState_JumpUp : PlayerState
 
     public override void LogicUpdate()
     {
-        if (controller.IsFalling)
+        if (controller.IsFalling || input.isStopJump)
         {
             stateMachine.SwitchState(typeof(PlayerState_Fall));
         }
+    }
 
-        
+    public override void PhysicUpdate()
+    {
+        controller.Move(moveSpeed);
     }
 
 }

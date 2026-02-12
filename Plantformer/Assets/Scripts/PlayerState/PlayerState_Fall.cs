@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerState_Fall : PlayerState
 {
     [SerializeField] AnimationCurve speedCurve;
+    [SerializeField] float moveSpeed = 5f;
 
     public override void Enter()
     {
@@ -25,5 +26,7 @@ public class PlayerState_Fall : PlayerState
     {
         //掉落速度曲线模拟
         controller.SetVelocityY(speedCurve.Evaluate(AnimationDuration));
+
+        controller.Move(moveSpeed);
     }
 }
