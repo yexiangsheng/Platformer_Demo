@@ -6,11 +6,8 @@ using UnityEngine;
 public class PlayerStateMachine : StateMachine
 {
     Animator animator;
-
     PlayerController controller;
-
     PlayerInput input;
-
     [SerializeField] PlayerState[] states;
 
     private void Awake()

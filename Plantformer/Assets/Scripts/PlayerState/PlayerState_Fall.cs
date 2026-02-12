@@ -1,18 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PlayerState_Fall : MonoBehaviour
+[CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Fall", fileName = "PlayerState_Fall")]
+public class PlayerState_Fall : PlayerState
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] AnimationCurve speedCurve;
+
+    public override void Enter()
     {
-        
+        base.Enter();
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void LogicUpdate()
     {
-        
+        if (controller.IsGround)
+        {
+            stateMachine.SwitchState(typeof(PlayerState_Land));
+        }
+    }
+
+    
+    public override void PhysicUpdate()
+    {
+        //掉落速度曲线模拟
+        controller.SetVelocityY(speedCurve.Evaluate(AnimationDuration));
     }
 }

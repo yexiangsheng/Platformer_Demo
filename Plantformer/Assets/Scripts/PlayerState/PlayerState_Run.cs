@@ -29,6 +29,16 @@ public class PlayerState_Run : PlayerState
             stateMachine.SwitchState(typeof(PlayerState_Idle));
         }
 
+        if (input.isJump)
+        {
+            stateMachine.SwitchState(typeof(PlayerState_JumpUp));
+        }
+
+        if (!controller.IsGround)
+        {
+            stateMachine.SwitchState(typeof(PlayerState_Fall));
+        }
+
         currentSpeed = Mathf.MoveTowards(currentSpeed, runSpeed, acceleration * Time.deltaTime);
     }
     public override void PhysicUpdate()

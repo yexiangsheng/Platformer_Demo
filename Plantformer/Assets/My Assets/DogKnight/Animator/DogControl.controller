@@ -159,7 +159,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack01
+  m_Name: Fall
   m_Speed: 1.2
   m_CycleOffset: 0
   m_Transitions: []
@@ -211,7 +211,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack02
+  m_Name: Jump
   m_Speed: 1.2
   m_CycleOffset: 0
   m_Transitions: []
@@ -263,7 +263,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Defend
+  m_Name: Land
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -293,16 +293,16 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102031868726192584}
-    m_Position: {x: 230, y: 0, z: 0}
+    m_Position: {x: 240, y: -160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102597142297889830}
-    m_Position: {x: 460, y: -70, z: 0}
+    m_Position: {x: 240, y: -40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102841285716856984}
-    m_Position: {x: 460, y: 0, z: 0}
+    m_Position: {x: 240, y: 30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102978981160464930}
-    m_Position: {x: 460, y: 70, z: 0}
+    m_Position: {x: 240, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102494443745526630}
     m_Position: {x: 460, y: 150, z: 0}
@@ -311,13 +311,13 @@ AnimatorStateMachine:
     m_Position: {x: 680, y: -70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102503426251137486}
-    m_Position: {x: 680, y: 0, z: 0}
+    m_Position: {x: 680, y: 10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102201852766415110}
     m_Position: {x: 680, y: 70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102851807468560652}
-    m_Position: {x: 230, y: 150, z: 0}
+    m_Position: {x: 240, y: -100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102689691343913632}
     m_Position: {x: 680, y: 150, z: 0}

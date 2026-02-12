@@ -14,13 +14,13 @@ public class PlayerController : MonoBehaviour
     GroundDetector groundDetector;
 
     public bool IsGround => groundDetector.IsGround;
-    public bool IsFalling => rb.velocity.y < 0f && !IsGround;
+    public bool IsFalling => rb.velocity.y < 0f ;
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody>();
-        groundDetector = GetComponent<GroundDetector>();
+        groundDetector = GetComponentInChildren<GroundDetector>();
     }
 
     private void Start()
@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
+
     }
 
     /// <summary>

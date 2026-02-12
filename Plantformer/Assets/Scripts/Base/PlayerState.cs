@@ -9,7 +9,7 @@ public class PlayerState : ScriptableObject, IState
     [SerializeField] string stateName;
     int stateHash;
 
-    [SerializeField, Range(0f, 1f)] float transitionDuration;
+    [SerializeField, Range(0f, 1f)] float transitionDuration = 0.1f;
 
     protected Animator animator;
     protected PlayerStateMachine stateMachine;
