@@ -61,4 +61,8 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = new Vector3 (rb.velocity.x,velocityY);
     }
+    public void SetUseGravity(bool value)
+    {
+        rb.useGravity = value;
+    }
 }
