@@ -20,12 +20,18 @@ public class PlayerState_Fall : PlayerState
             stateMachine.SwitchState(typeof(PlayerState_Land));
         }
 
+
         if (input.isJump)
         {
             if (controller.CanDoubleJump)
             {
                 stateMachine.SwitchState(typeof(PlayerState_DoubleJump));
+
+                return;
             }
+
+            //玩家处于下落状态并且按住跳跃按键时，跳跃缓冲为true
+            input.SetJumpInputBufferTimer();
         }
     }
 

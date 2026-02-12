@@ -17,11 +17,11 @@ public class PlayerState_Land : PlayerState
 
     public override void LogicUpdate()
     {
-        if (IsAnimationFinish)
-        {//当动画播放完毕切换Idle状态
-            stateMachine.SwitchState(typeof(PlayerState_Idle));
+        if (input.isJump || input.HasJumpInputBuffer)
+        {
+            stateMachine.SwitchState(typeof(PlayerState_JumpUp));
         }
-
+        
         //增加下落时的硬直时间
         if (AnimationDuration < stiffTime)
         {
@@ -33,9 +33,10 @@ public class PlayerState_Land : PlayerState
             stateMachine.SwitchState(typeof(PlayerState_Run));
         }
 
-        if (input.isJump)
-        {
-            stateMachine.SwitchState(typeof(PlayerState_JumpUp));
+        if (IsAnimationFinish)
+        {//当动画播放完毕切换Idle状态
+            stateMachine.SwitchState(typeof(PlayerState_Idle));
         }
+
     }
 }

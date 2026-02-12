@@ -17,6 +17,9 @@ public class PlayerState_JumpUp : PlayerState
         controller.SetVelocityY(jumpForce);
 
         Instantiate(jumpVFX, controller.transform.position, Quaternion.identity);
+
+        //玩家进入起跳状态时，跳跃缓冲为false
+        input.HasJumpInputBuffer = false;
     }
 
     public override void LogicUpdate()
