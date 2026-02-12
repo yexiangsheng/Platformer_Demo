@@ -28,9 +28,13 @@ public class PlayerController : MonoBehaviour
     {
     }
 
+    /// <summary>
+    /// 移动的物理更新
+    /// </summary>
+    /// <param name="moveSpeed"></param>
     public void Move(float moveSpeed)
     {
-        if (playerInput.isMove)
+        if (playerInput.isMove)//角色朝向
         {
             transform.localScale = new Vector3(playerInput.AxesX, 1f, 1f);
         }

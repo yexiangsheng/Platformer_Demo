@@ -10,7 +10,9 @@ public class PlayerState_Idle : PlayerState
 
     public override void Enter()
     {
-        animator.Play("Idle");
+        //animator.Play("Idle");
+        base.Enter();
+
 
         currentSpeed = controller.CurrentSpeed;
     }

@@ -6,6 +6,11 @@ using UnityEngine;
 /// </summary>
 public class PlayerState : ScriptableObject, IState
 {
+    [SerializeField] string stateName;
+    int stateHash;
+
+    [SerializeField, Range(0f, 1f)] float transitionDuration;
+
     protected Animator animator;
 
     protected PlayerStateMachine stateMachine;
@@ -16,6 +21,13 @@ public class PlayerState : ScriptableObject, IState
 
     protected float currentSpeed;
 
+    public void OnEnable()
+    {
+        //使用哈希值效率更高
+        //StringToHash是静态函数
+        stateHash = Animator.StringToHash(stateName);
+    }
+
     public void Initialize(Animator animator, PlayerController controller, PlayerInput input,PlayerStateMachine stateMachine)
     {
         this.animator = animator;
@@ -24,9 +36,9 @@ public class PlayerState : ScriptableObject, IState
         this.stateMachine = stateMachine;
     }
 
-
     public virtual void Enter()
     {
+        animator.CrossFade(stateHash, transitionDuration);
     }
 
     public virtual void Exit()

@@ -12,7 +12,9 @@ public class PlayerState_Run : PlayerState
 
     public override void Enter()
     {
-        animator.Play("Run");
+        //”≈ªØ∂Øª≠
+        //animator.Play("Run");
+        base.Enter();
 
         currentSpeed = controller.CurrentSpeed;
     }
