@@ -11,11 +11,16 @@ public class PlayerController : MonoBehaviour
 
     public float CurrentSpeed => Mathf.Abs(rb.velocity.x);
 
+    GroundDetector groundDetector;
+
+    public bool IsGround => groundDetector.IsGround;
+    public bool IsFalling => rb.velocity.y < 0f && !IsGround;
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody>();
+        groundDetector = GetComponent<GroundDetector>();
     }
 
     private void Start()

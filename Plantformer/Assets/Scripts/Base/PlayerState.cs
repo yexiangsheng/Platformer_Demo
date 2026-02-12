@@ -12,20 +12,24 @@ public class PlayerState : ScriptableObject, IState
     [SerializeField, Range(0f, 1f)] float transitionDuration;
 
     protected Animator animator;
-
     protected PlayerStateMachine stateMachine;
-
     protected PlayerController controller;
-
     protected PlayerInput input;
 
     protected float currentSpeed;
+
+    //用时间戳获得当前动画时间
+    protected bool IsAnimationFinish => AnimationDuration >= animator.GetCurrentAnimatorClipInfo(0).Length;
+    protected float AnimationDuration => Time.time - startAnimationTime;
+    private float startAnimationTime;
+
 
     public void OnEnable()
     {
         //使用哈希值效率更高
         //StringToHash是静态函数
         stateHash = Animator.StringToHash(stateName);
+
     }
 
     public void Initialize(Animator animator, PlayerController controller, PlayerInput input,PlayerStateMachine stateMachine)
@@ -38,7 +42,11 @@ public class PlayerState : ScriptableObject, IState
 
     public virtual void Enter()
     {
+        //动画渐入渐出（使动画切换更加丝滑）
         animator.CrossFade(stateHash, transitionDuration);
+
+        startAnimationTime = Time.time;
+
     }
 
     public virtual void Exit()
