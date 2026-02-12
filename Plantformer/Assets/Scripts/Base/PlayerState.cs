@@ -23,7 +23,6 @@ public class PlayerState : ScriptableObject, IState
     protected float AnimationDuration => Time.time - startAnimationTime;
     private float startAnimationTime;
 
-
     public void OnEnable()
     {
         //使用哈希值效率更高
@@ -45,6 +44,7 @@ public class PlayerState : ScriptableObject, IState
         //动画渐入渐出（使动画切换更加丝滑）
         animator.CrossFade(stateHash, transitionDuration);
 
+        //当前状态动画开始时间戳
         startAnimationTime = Time.time;
 
     }

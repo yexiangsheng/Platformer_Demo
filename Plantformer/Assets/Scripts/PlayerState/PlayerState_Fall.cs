@@ -19,6 +19,14 @@ public class PlayerState_Fall : PlayerState
         {
             stateMachine.SwitchState(typeof(PlayerState_Land));
         }
+
+        if (input.isJump)
+        {
+            if (controller.CanDoubleJump)
+            {
+                stateMachine.SwitchState(typeof(PlayerState_DoubleJump));
+            }
+        }
     }
 
     

@@ -12,6 +12,7 @@ public class PlayerState_Land : PlayerState
         base.Enter();
 
         controller.SetVelocity(Vector3.zero);
+
     }
 
     public override void LogicUpdate()

@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     public bool IsGround => groundDetector.IsGround;
     public bool IsFalling => rb.velocity.y < 0f ;
+    public bool CanDoubleJump { get; set; }
 
     private void Awake()
     {

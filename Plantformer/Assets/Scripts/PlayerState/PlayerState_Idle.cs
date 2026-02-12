@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 public class PlayerState_Idle : PlayerState
 {
     [SerializeField] float deceleration = 5f;
-    [SerializeField] float moveSpeed = 5f;
     public override void Enter()
     {
         //animator.Play("Idle");

@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
+using UnityEngine.Windows;
 
-[CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/JumpUp", fileName = "PlayerState_JumpUp")]
-public class PlayerState_JumpUp : PlayerState
+[CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/DoubleJump", fileName = "PlayerState_DoubleJump")]
+public class PlayerState_DoubleJump : PlayerState
 {
     [SerializeField] float jumpForce = 7f;
     [SerializeField] float moveSpeed = 5f;
@@ -16,6 +19,9 @@ public class PlayerState_JumpUp : PlayerState
 
         controller.SetVelocityY(jumpForce);
 
+        controller.CanDoubleJump = false;
+
+        //实例化特效：特效prefab，挂载在player上的玩家控制类，四元数单位元（0，0，0）
         Instantiate(jumpVFX, controller.transform.position, Quaternion.identity);
     }
 
@@ -25,12 +31,10 @@ public class PlayerState_JumpUp : PlayerState
         {
             stateMachine.SwitchState(typeof(PlayerState_Fall));
         }
-
     }
 
     public override void PhysicUpdate()
     {
         controller.Move(moveSpeed);
     }
-
 }
