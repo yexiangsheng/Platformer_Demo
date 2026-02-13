@@ -248,8 +248,9 @@ GameObject:
   - component: {fileID: 17928023}
   - component: {fileID: 17928022}
   - component: {fileID: 17928021}
+  - component: {fileID: 17928025}
   m_Layer: 0
-  m_Name: Door
+  m_Name: Gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -326,13 +327,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17928020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.68, y: 2.35, z: 14.0913515}
+  m_LocalPosition: {x: 11.68, y: 2.46, z: 13.9}
   m_LocalScale: {x: 1, y: 3.995, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &17928025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17928020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8168c1eade9044bbe0b0151f2e20ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gateTriggeredEventChannel: {fileID: 11400000, guid: be03b3db75a025d40843103f1db24d97, type: 2}
 --- !u!1 &229131916
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,6 +679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: f718b6d422bb78540bde46004227f147, type: 3}
   fvxEffect: {fileID: 4741868478294968202, guid: 251e4bc1cd2af1644b025b1073f0f2b8, type: 3}
+  gateTriggeredEventChannel: {fileID: 11400000, guid: be03b3db75a025d40843103f1db24d97, type: 2}
 --- !u!65 &1004724277
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1070,6 +1085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 8454d8b4a156f1248a0ab6f4f69c1d5f, type: 3}
   fvxEffect: {fileID: 4741868478294968202, guid: 251e4bc1cd2af1644b025b1073f0f2b8, type: 3}
+  levelClearEventChannel: {fileID: 0}
 --- !u!136 &1273954933
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1334,6 +1350,37 @@ Transform:
   - {fileID: 1279381553}
   m_Father: {fileID: 0}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1918829743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1918829744}
+  m_Layer: 0
+  m_Name: UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1918829744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918829743}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.9850082, y: 3.8582573, z: 11.039953}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2022356008
 GameObject:
@@ -4082,6 +4129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50fdae3cc29d7d04c8777be02d9a7412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelClearEventChannel: {fileID: 11400000, guid: 2569c103b977f4247b41d31613e552ba, type: 2}
 --- !u!54 &2489311976932782317
 Rigidbody:
   m_ObjectHideFlags: 0

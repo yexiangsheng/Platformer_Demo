@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource AudioSource { get; set; }
 
+    [SerializeField] VoidEventChannel levelClearEventChannel;
+    public bool IsVictory { get; set; }
+
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -35,7 +38,16 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
+        levelClearEventChannel.AddListener(OnLevelClear);
+    }
+    private void OnDisable()
+    {
+        levelClearEventChannel.RemoveListener(OnLevelClear);
+    }
 
+    void OnLevelClear()
+    {
+        IsVictory = true;
     }
 
     /// <summary>
