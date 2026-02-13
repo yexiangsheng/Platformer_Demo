@@ -1439,6 +1439,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelClearEventChannel: {fileID: 11400000, guid: 2569c103b977f4247b41d31613e552ba, type: 2}
+  retryAudioClips: []
+  finishButton: {fileID: 0}
 --- !u!114 &1469643482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3883,6 +3885,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 565d62c3d4d7a9a43922a3b9fa2a7455, type: 2}
   - {fileID: 11400000, guid: 55b10adaee8c4de4ab3f053a1ef0e64e, type: 2}
   - {fileID: 11400000, guid: dbc2f1f0699f51d4f95a9c5f6af03c74, type: 2}
+  - {fileID: 11400000, guid: 008b82e35de094e47933c4f09db6d0ef, type: 2}
+  - {fileID: 11400000, guid: 2cd009350a597694596945cb1783feb3, type: 2}
 --- !u!1 &2066896392121859375
 GameObject:
   m_ObjectHideFlags: 0

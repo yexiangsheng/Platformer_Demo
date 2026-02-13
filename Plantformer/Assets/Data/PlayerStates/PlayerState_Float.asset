@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateName: Float
   transitionDuration: 0.1
-  audioClip: {fileID: 0}
-  playerDefeatedEventChannel: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 19f89c6e740e7447f9e12a8310d3e973, type: 3}
+  playerDefeatedEventChannel: {fileID: 11400000, guid: 8d94841ecd08ec54bbcaa67328e1d9ec, type: 2}
