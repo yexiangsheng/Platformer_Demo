@@ -17,11 +17,14 @@ public class PlayerController : MonoBehaviour
     public bool IsFalling => rb.velocity.y < 0f ;
     public bool CanDoubleJump { get; set; }
 
+    public AudioSource AudioSource { get; set; }
+
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody>();
         groundDetector = GetComponentInChildren<GroundDetector>();
+        AudioSource = GetComponentInChildren<AudioSource>();
     }
 
     private void Start()

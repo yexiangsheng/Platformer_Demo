@@ -23,12 +23,15 @@ public class PlayerState : ScriptableObject, IState
     protected float AnimationDuration => Time.time - startAnimationTime;
     private float startAnimationTime;
 
+    [SerializeField] AudioClip audioClip;
+
     public void OnEnable()
     {
         //使用哈希值效率更高
         //StringToHash是静态函数
         stateHash = Animator.StringToHash(stateName);
 
+        
     }
 
     public void Initialize(Animator animator, PlayerController controller, PlayerInput input,PlayerStateMachine stateMachine)
@@ -47,6 +50,15 @@ public class PlayerState : ScriptableObject, IState
         //当前状态动画开始时间戳
         startAnimationTime = Time.time;
 
+        //播放音频
+        if (controller.AudioSource == null)
+        {
+            Debug.Log("Failed to find audio clip!!!");
+        }
+        else
+        {
+            controller.AudioSource.PlayOneShot(audioClip);
+        }
     }
 
     public virtual void Exit()

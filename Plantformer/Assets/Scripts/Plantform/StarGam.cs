@@ -12,6 +12,9 @@ public class StarGam : MonoBehaviour
 
     WaitForSeconds waitForSeconds;
 
+    [SerializeField] AudioClip audioClip;
+    [SerializeField] ParticleSystem fvxEffect;
+
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -25,11 +28,13 @@ public class StarGam : MonoBehaviour
         {
             //不要直接使用这个，因为此时挂载在这个gameObject上的脚本也会被禁用
             //gameObject.SetActive(false);
-
             player.CanDoubleJump = true;
-
             collider.enabled = false;
             meshRenderer.enabled = false;
+
+            //播放音效与特效
+            //SoundEffectPlay.AudioSource.PlayOneShot(audioClip);
+            Instantiate(fvxEffect, transform.position, Quaternion.identity);
 
             //用协程性能更好
             //Invoke(nameof(Reset), resetTime);
