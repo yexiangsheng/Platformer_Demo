@@ -3,24 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VictoryScreen : MonoBehaviour
+public class DefeatScreen : MonoBehaviour
 {
-    [SerializeField] VoidEventChannel_SO levelClearEventChannel;
+    [SerializeField] VoidEventChannel_SO playerDefeatedEventChannel;
     [SerializeField] AudioClip[] retryAudioClips;
 
-    [SerializeField] Button finishButton;
+    [SerializeField] Button retryButton;
+    [SerializeField] Button quitButton;
+
 
     private void OnEnable()
     {
-        levelClearEventChannel.AddListener(ShowUI);
+        playerDefeatedEventChannel.AddListener(ShowUI);
 
-        finishButton.onClick.AddListener(SceneLoader.LoadNextScene);
+        retryButton.onClick.AddListener(SceneLoader.ReloadScene);
+        quitButton.onClick.AddListener(SceneLoader.QuitGame);
     }
     private void OnDisable()
     {
-        levelClearEventChannel.RemoveListener(ShowUI);
+        playerDefeatedEventChannel.RemoveListener(ShowUI);
 
-        finishButton.onClick.RemoveListener(SceneLoader.LoadNextScene);
+        retryButton.onClick.RemoveListener(SceneLoader.ReloadScene);
+        quitButton.onClick.RemoveListener(SceneLoader.QuitGame);
     }
     void ShowUI()
     {
@@ -34,7 +38,4 @@ public class VictoryScreen : MonoBehaviour
         //解锁鼠标光标
         Cursor.lockState = CursorLockMode.None;
     }
-
-
-
 }
