@@ -8,7 +8,7 @@ public class BlueGam : MonoBehaviour
     [SerializeField] AudioClip audioClip;
     [SerializeField] ParticleSystem fvxEffect;
 
-    [SerializeField] VoidEventChannel gateTriggeredEventChannel;
+    [SerializeField] VoidEventChannel_SO gateTriggeredEventChannel;
 
     private void OnTriggerEnter(Collider other)
     {

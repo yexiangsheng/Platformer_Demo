@@ -81,7 +81,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Dizzy
+  m_Name: Defeated
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -308,13 +308,13 @@ AnimatorStateMachine:
     m_Position: {x: 240, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102381193985536354}
-    m_Position: {x: 680, y: -70, z: 0}
+    m_Position: {x: 470, y: -30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102503426251137486}
     m_Position: {x: 240, y: 330, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102201852766415110}
-    m_Position: {x: 680, y: 70, z: 0}
+    m_Position: {x: 470, y: 30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102851807468560652}
     m_Position: {x: 240, y: 30, z: 0}

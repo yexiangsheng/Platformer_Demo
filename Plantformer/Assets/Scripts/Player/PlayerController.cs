@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource AudioSource { get; set; }
 
-    [SerializeField] VoidEventChannel levelClearEventChannel;
+    [SerializeField] VoidEventChannel_SO levelClearEventChannel;
     public bool IsVictory { get; set; }
 
     private void Awake()
@@ -45,15 +45,29 @@ public class PlayerController : MonoBehaviour
         levelClearEventChannel.RemoveListener(OnLevelClear);
     }
 
-    void OnLevelClear()
+    #region 游戏状态通知
+    public void OnLevelClear()
     {
         IsVictory = true;
     }
 
-    /// <summary>
-    /// 移动的物理更新
-    /// </summary>
-    /// <param name="moveSpeed"></param>
+    public void OnDefeated()
+    {
+        //禁用玩家输入
+        playerInput.DisableGameplayInput();
+
+        //禁止玩家移动与碰撞
+        rb.velocity = Vector3.zero;
+        rb.useGravity = false;
+        rb.detectCollisions = false;
+
+        //通知状态机，让玩家切换到失败状态
+        GetComponent<StateMachine>().SwitchState(typeof(PlayerState_Defeated));
+
+    }
+    #endregion
+
+    #region 移动的物理更新
     public void Move(float moveSpeed)
     {
         if (playerInput.isMove)//角色朝向
@@ -63,7 +77,6 @@ public class PlayerController : MonoBehaviour
 
         SetVelocityX(moveSpeed * playerInput.AxesX);
     }
-
     public void SetVelocity(Vector3 velocity)
     {
         rb.velocity = velocity;
@@ -80,4 +93,5 @@ public class PlayerController : MonoBehaviour
     {
         rb.useGravity = value;
     }
+    #endregion
 }

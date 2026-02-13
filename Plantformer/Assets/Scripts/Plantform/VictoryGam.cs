@@ -7,7 +7,7 @@ public class VictoryGam : MonoBehaviour
     [SerializeField] AudioClip audioClip;
     [SerializeField] ParticleSystem fvxEffect;
 
-    [SerializeField] VoidEventChannel levelClearEventChannel;
+    [SerializeField] VoidEventChannel_SO levelClearEventChannel;
 
     private void OnTriggerEnter(Collider other)
     {

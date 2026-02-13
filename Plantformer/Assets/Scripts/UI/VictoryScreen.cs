@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VictoryScreen : MonoBehaviour
 {
-    [SerializeField] VoidEventChannel levelClearEventChannel;
+    [SerializeField] VoidEventChannel_SO levelClearEventChannel;
 
     private void OnEnable()
     {

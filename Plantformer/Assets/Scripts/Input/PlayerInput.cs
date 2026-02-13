@@ -90,6 +90,11 @@ public class PlayerInput : MonoBehaviour/*ScriptableObject, PlayerInputActions.I
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    public void DisableGameplayInput()
+    {
+        playerInputActions.Gameplay.Disable();
+    }
+
     public void DisableAllInput()
     {
         playerInputActions.Gameplay.Disable();

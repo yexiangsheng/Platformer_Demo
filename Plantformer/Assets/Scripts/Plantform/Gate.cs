@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gate : MonoBehaviour
 {
 
-    [SerializeField] VoidEventChannel gateTriggeredEventChannel;
+    [SerializeField] VoidEventChannel_SO gateTriggeredEventChannel;
 
     
     private void OnEnable()

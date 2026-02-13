@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 
 [CreateAssetMenu(menuName = "Data/EventChannels/VoidEventChannel", fileName = "VoidEventChannel_")]
-public class VoidEventChannel : ScriptableObject
+public class VoidEventChannel_SO : ScriptableObject
 {
     event UnityAction Delegate;
 
