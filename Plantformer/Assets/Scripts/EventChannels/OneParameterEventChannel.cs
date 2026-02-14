@@ -1,21 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-
+using System;
 public class OneParameterEventChannel<T> : ScriptableObject
 {
-    event UnityAction<T> Delegate;
+
+    //使用C#原生的事件类性能更好
+    event Action<T> Delegate;
 
     public void Broadcast(T obj)
     {
         Delegate?.Invoke(obj);
     }
-    public void AddListener(UnityAction<T> action)
+    public void AddListener(Action<T> action)
     {
         Delegate += action;
     }
-    public void RemoveListener(UnityAction<T> action)
+    public void RemoveListener(Action<T> action)
     {
         Delegate -= action;
     }
