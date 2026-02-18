@@ -33,7 +33,7 @@ public class DefeatScreen : MonoBehaviour
 
         //随机播放retry音效
         AudioClip retryClip = retryAudioClips[Random.Range(0, retryAudioClips.Length)];
-        SoundEffectPlay.AudioSource.PlayOneShot(retryClip);
+        //SoundEffectPlay.AudioSource.PlayOneShot(retryClip);
 
         //解锁鼠标光标
         Cursor.lockState = CursorLockMode.None;

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d59a1feb86539429a30c09608b24a1, type: 3}
   m_Name: PlayerState_CoyoteTime
   m_EditorClassIdentifier: 
-  stateName: CoyoteTime
+  stateName: Run
   transitionDuration: 0.1
-  audioClip: {fileID: 8300000, guid: f718b6d422bb78540bde46004227f147, type: 3}
+  audioClip: {fileID: 8300000, guid: 514dfaed2534942e8a5c5f7f253ed89b, type: 3}
   runSpeed: 5
   acceleration: 5
   coyoteTime: 0.1

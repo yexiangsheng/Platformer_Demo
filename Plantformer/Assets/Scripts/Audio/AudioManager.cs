@@ -1,28 +1,105 @@
-using UnityEditorInternal;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : Singleton<AudioManager>
 {
-    [SerializeField] AudioSource audioSource;
+    public AudioType[] audioTypes;
 
-    const float MIN_PITCH = 0.9f;
-    const float MAX_PITCH = 1.1f;
+    public Dictionary<string, AudioSource> audioDict = new Dictionary<string, AudioSource>();
 
-    //Used for UI SFX
-    public void PlaySFX(AudioData audioData)
+    private void Start()
     {
-        //该函数不会覆盖正在播放中的其他音频
-        audioSource.PlayOneShot(audioData.audioClip, audioData.volume);
+        foreach (AudioType type in audioTypes)
+        {
+            type.Source = gameObject.AddComponent<AudioSource>();
+            
+            type.Source.clip = type.Clip;
+            type.Source.name = type.Name;
+            type.Source.volume = type.Volume;
+            type.Source.pitch = type.Pitch;
+            type.Source.loop = type.isLoop;
+
+            if (type.Group is not null)
+            {
+                type.Source.outputAudioMixerGroup = type.Group;
+            }
+
+            if (!audioDict.ContainsKey(type.Source.name))
+            {
+                audioDict.Add(type.Source.name, type.Source);
+            }
+        }
     }
-    //Used for repeat-play SFX
-    public void PlayRandomSFX(AudioData audioData)
+
+    #region 基础功能
+    public void Play(string name)
     {
-        audioSource.pitch = Random.Range(MIN_PITCH, MAX_PITCH);
-        PlaySFX(audioData);
+        if (audioDict.TryGetValue(name, out AudioSource audioSource))
+        {
+            audioDict[name].PlayOneShot(audioSource.clip);
+        }
+        else 
+        {
+            Debug.Log("不存在" + name);
+        }
     }
-    //Used for select one SFX from many SFX
-    public void PlayerRandomSFX(AudioData[] audioDatas)
+    public void Pause(string name)
     {
-        PlayRandomSFX(audioDatas[Random.Range(0, audioDatas.Length)]);
+        if (audioDict.ContainsKey(name))
+        {
+            audioDict[name].Pause();
+        }
+        else
+        {
+            Debug.Log("不存在" + name);
+        }
     }
+    public void Stop(string name)
+    {
+        if (audioDict.ContainsKey(name))
+        {
+            audioDict[name].Stop();
+        }
+        else
+        {
+            Debug.Log("不存在" + name);
+        }
+    }
+    #endregion
+
+    #region Play扩展
+    public void PlayBGM(string bgmName)
+    {
+        if (audioDict.TryGetValue(name, out AudioSource audioSource))
+        {
+            audioDict[name].PlayOneShot(audioSource.clip);
+        }
+        else
+        {
+            Debug.Log("不存在" + name);
+        }
+    }
+    public void PlaySFX(string sfxName)
+    {
+        if (audioDict.TryGetValue(name, out AudioSource audioSource))
+        {
+            audioDict[name].PlayOneShot(audioSource.clip);
+        }
+        else
+        {
+            Debug.Log("不存在" + name);
+        }
+    }
+    public void PlayUIEffect(string uiName)
+    {
+        if (audioDict.TryGetValue(name, out AudioSource audioSource))
+        {
+            audioDict[name].PlayOneShot(audioSource.clip);
+        }
+        else
+        {
+            Debug.Log("不存在" + name);
+        }
+    }
+    #endregion
 }

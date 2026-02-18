@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateName: Idle
   transitionDuration: 0.1
-  audioClip: {fileID: 8300000, guid: 7cc6c575548dba745b4ccc4f06ecc63b, type: 3}
+  audioClip: {fileID: 8300000, guid: 48f945eaabaa941da8b22c03b441664a, type: 3}
   deceleration: 5

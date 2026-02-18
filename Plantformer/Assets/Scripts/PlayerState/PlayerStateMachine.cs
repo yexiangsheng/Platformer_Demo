@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerStateMachine : StateMachine
@@ -27,6 +25,7 @@ public class PlayerStateMachine : StateMachine
 
     private void Start()
     {
+        //反射获取状态的类型
         SwitchOn(stateTable[typeof(PlayerState_Idle)]);
     }
 

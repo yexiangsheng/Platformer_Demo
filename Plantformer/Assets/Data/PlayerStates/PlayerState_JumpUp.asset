@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateName: Jump
   transitionDuration: 0.1
-  audioClip: {fileID: 8300000, guid: 4119249b44b69c249a23efe5a7321fb6, type: 3}
+  audioClip: {fileID: 8300000, guid: eed2451bbd4264da8b6c27c92df62faf, type: 3}
   jumpForce: 7
   moveSpeed: 5
   jumpVFX: {fileID: 4741868478294968202, guid: 251e4bc1cd2af1644b025b1073f0f2b8, type: 3}

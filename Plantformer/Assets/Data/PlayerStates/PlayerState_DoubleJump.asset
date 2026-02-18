@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc8e3ae707af0d4dbb3629191b2256a, type: 3}
   m_Name: PlayerState_DoubleJump
   m_EditorClassIdentifier: 
-  stateName: DoubleJump
+  stateName: Jump
   transitionDuration: 0.1
-  audioClip: {fileID: 8300000, guid: 9c70421dd8193d84aa1d99ab054586fc, type: 3}
+  audioClip: {fileID: 8300000, guid: eed2451bbd4264da8b6c27c92df62faf, type: 3}
   jumpForce: 7
   moveSpeed: 5
   jumpVFX: {fileID: 4741868478294968202, guid: 251e4bc1cd2af1644b025b1073f0f2b8, type: 3}

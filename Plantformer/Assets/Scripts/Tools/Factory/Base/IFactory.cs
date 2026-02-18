@@ -1,0 +1,8 @@
+using UnityEngine;
+
+public interface IFactory<T>
+{
+    T Create();
+
+    T Create(Transform parent);
+}
