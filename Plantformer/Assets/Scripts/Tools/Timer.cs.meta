@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6a309dd1f04a43946825f552da98d05a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - timeText: {instanceID: 0}
+  - levelStartEventChannel: {fileID: 11400000, guid: a7dace92e089db64185d706f0785ff70, type: 2}
+  - levelStopEventChannel: {fileID: 11400000, guid: 8d94841ecd08ec54bbcaa67328e1d9ec, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
